@@ -5,7 +5,7 @@ function StudentHome() {
     return (
         <>
             <Navbar/>
-            <ProgresSummary progress={60}/>
+            <ProgresSummary progress={65}/>
         </>
     )
   }
