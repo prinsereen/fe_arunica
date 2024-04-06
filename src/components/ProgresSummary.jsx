@@ -33,17 +33,17 @@ const ProgresSummary = ({ progress }) => {
   return (
 <>
   <div className="relative">
-    <img src={Backdrop} alt="backdrop" className="absolute inset-0 w-full px-64 h-60 pt-6" />
+    <img src={Backdrop} alt="backdrop" className="absolute inset-0 w-full px-44 h-40 pt-6" />
     <div className="flex">      
-      <div className="pt-16 z-10 pl-20 w-2/5">
+      <div className="pt-10 z-10 pl-20 w-2/5">
           <div className="flex space-x-2 justify-end">
               <img className="w-1/6" src={profile} alt="profile" />
               <div className="px-4">
-                  <h1 className="text-4xl font-bold pt-4">Halo Anton!</h1>
-                  <h2 className="text-md">Sudah siap naik kelas ?</h2>
+                  <h1 className="text-2xl font-bold pt-1">Halo Anton!</h1>
+                  <h2 className="">Sudah siap naik kelas ?</h2>
               </div>
           </div>
-          <div className="pl-56">
+          <div className="pl-40">
             <div>
                 <div className="flex h-4 mt-2 bg-gray-300 rounded-xl relative">
                     <div
@@ -59,26 +59,26 @@ const ProgresSummary = ({ progress }) => {
       </div>
 
       <div className="w-1/5 item-center">
-        <div className="pt-16 flex flex-col items-center "> 
+        <div className="pt-8 flex flex-col items-center "> 
           <h1 className="z-10 font-bold text-2xl">Level</h1>
           <img src={Level} alt="level" className=" z-10 w-2/5" />
         </div>
       </div>
 
-      <div className="w-36 h-1/5 pt-16 z-10">
+      <div className="w-28 h-1/5 pt-8 z-10">
         <Doughnut data={data} />
       </div>
 
-      <div className="w-48 h-1/5 z-10 font-bold pl-4 pt-20">
+      <div className="w-36 h-1/5 z-10 font-bold pl-4 pt-12">
         <ul>
           {data.datasets[0].data.map((subject, index) => (
-            <li key={index}>{subject}% {data.labels[index]}</li>
+            <li key={index} className="text-xs">{subject}% {data.labels[index]}</li>
           ))}
         </ul>
-       </div>
+      </div>  
     </div>
-    <div className="flex justify-center pt-16">
-      <img src={Penyambutan} alt="" />
+    <div className="flex w-2/3 mx-auto pt-8">
+      <img src={Penyambutan} alt="" className="" />
     </div>
   </div> 
 </>
