@@ -6,8 +6,9 @@ import ImageCard from "./ImageCard";
 function ChallengeCard() {
     const datas = {
         imageSrc: [BangunDatar, BangunRuang, LuasDanVolume],
-        title: ["BangunDatar", "BangunRuang", "LuasDanVolume"],
+        title: ["Bangun Datar", "Bangun Ruang", "Luas Dan Volume"],
         description: ["10 pilihan ganda, 10 isian singkat", "10 pilihan ganda, 10 isian singkat", "10 pilihan ganda, 10 isian singkat"],
+        deadline: ["15 Oktober 2023", "15 Oktober 2023", "15 Oktober 2023"],
         exp: [15, 15, 15]
     }
 
@@ -21,7 +22,8 @@ function ChallengeCard() {
                             imageSrc: image,
                             title: datas.title[index],
                             description: datas.description[index],
-                            exp: datas.exp[index]
+                            exp: datas.exp[index],
+                            deadline: datas.deadline[index]
                         }}
                     />
                 ))}

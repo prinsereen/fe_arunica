@@ -13,6 +13,7 @@ function ImageCard({ datas }) {
         <div className="items text-center">
           <h1 className="font-bold">{datas.title}</h1>
           {datas.description && <h2 className="text-light">{datas.description}</h2>}
+          {datas.deadline && <h2 className="text-light">{datas.deadline}</h2>}
           {datas.exp && <h2>{datas.exp} EXP</h2>}
         </div>
       </div>
@@ -25,6 +26,7 @@ ImageCard.propTypes = {
     imageSrc: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string,
+    deadline: PropTypes.string,
     exp: PropTypes.number
   }).isRequired
 };
