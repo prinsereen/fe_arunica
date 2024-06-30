@@ -1,4 +1,4 @@
-/* //import TutorCard from "./TutorCard.jsx";
+import TutorCard from "./TutorCard.jsx";
 
 const Tutor = () => {
   const dataTutor = {
@@ -7,16 +7,14 @@ const Tutor = () => {
       "https://www.youtube.com/watch?v=124ivGoFuQg",
       "https://www.youtube.com/watch?v=EAEQ7TaNdWk"
     ],
-    label: ["fotosintesis", "Sejarah VOC", "Koperasi"]
+    label: ["Fotosintesis", "Sejarah VOC", "Koperasi"]
   };
 
   return (
-    <div className="mx-44 border-2">
-      <div className="flex justify-between">
+    <div className="mx-44 pt-4">
+      <div className="grid grid-cols-3 gap-4">
         {dataTutor.url.map((url, index) => (
-          <div key={index} className="flex flex-col items-center">
-            <TutorCard url={url} label={dataTutor.label[index]} />
-          </div>
+          <TutorCard key={index} url={url} label={dataTutor.label[index]} />
         ))}
       </div>
     </div>
@@ -24,4 +22,3 @@ const Tutor = () => {
 };
 
 export default Tutor;
- */

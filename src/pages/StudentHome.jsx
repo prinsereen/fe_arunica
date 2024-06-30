@@ -3,6 +3,7 @@ import ProgresSummary from "../components/ProgresSummary"
 import Challenge from "../components/Challenge"
 import KnowledgeKingdom from "../components/KnowledeKingdom"
 import ImaginationKingdom from "../components/ImaginationKingdom"
+import Footer from "../components/Footer"
 
 function StudentHome() {
     return (
@@ -12,6 +13,7 @@ function StudentHome() {
             <Challenge/>
             <KnowledgeKingdom/>
             <ImaginationKingdom/>
+            <Footer/>
         </>
     )
   }

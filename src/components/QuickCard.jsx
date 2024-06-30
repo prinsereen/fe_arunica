@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-const TutorCard = ({ url, label }) => {
+const QuicCard = ({ url, label }) => {
   const [thumbnail, setThumbnail] = useState("");
 
   useEffect(() => {
@@ -29,9 +29,9 @@ const TutorCard = ({ url, label }) => {
   );
 };
 
-TutorCard.propTypes = {
+QuicCard.propTypes = {
   url: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired
 };
 
-export default TutorCard;
+export default QuicCard;

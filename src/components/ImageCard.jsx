@@ -5,8 +5,8 @@ function ImageCard({ datas }) {
     <div>
       <div className="w-72 relative">
         <img className="rounded-lg" src={datas.imageSrc} alt="img" />
-        <div className="rounded-b-lg absolute bottom-0 left-0 right-0 flex items-center justify-between bg-[#515151] opacity-75 h-10">
-          <button className="border ml-auto text-md px-4 mr-2 rounded-lg border-white text-white font-medium">PLAY</button>
+        <div className="rounded-b-lg absolute bottom-0 left-0 right-0 flex items-center justify-between bg-[#515151]  opacity-75 h-10">
+          <button className="border ml-auto text-md px-4 mr-2 rounded-lg hover:bg-[#3a3939] border-white text-white font-medium">PLAY</button>
         </div>
       </div>
       <div className="flex justify-center items-center">
