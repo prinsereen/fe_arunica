@@ -3,7 +3,7 @@ import StudentHome from './pages/StudentHome';
 import StudentRegister from './pages/StudentRegister';
 import StudentLogin from './pages/StudentLogin';
 import ChallengesPage from './pages/ChallengesPage';
-import ListQuiz from './pages/ListQuiz';
+import SearchChallenge from './pages/SearchChallenge';
 import KnowledeKingdomPilihanMenuPage from './pages/KnowledgeKingdomPilihanMenuPage';
 import KnowledgeKingdomPage from './pages/KnowledgeKingdomPage';
 import ImaginationKingdomPage from './pages/ImaginationKingdom';
@@ -21,7 +21,7 @@ function App() {
       <Route path='/knowledge/:tipe' element={<KnowledgeKingdomPage/>}/>
       <Route path='/imagination' element={<ImaginationKingdomPage/>}/>
       <Route path='/information' element={<InformationPage/>}/>
-      <Route path='/challenges/:id' element={<ListQuiz/>}/>
+      <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
     </Routes>
     </>
   )
