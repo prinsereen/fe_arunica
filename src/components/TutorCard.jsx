@@ -21,7 +21,7 @@ const TutorCard = ({ url, label }) => {
           src={thumbnail}
           alt="Video Thumbnail"
           className="mb-2 rounded-lg"
-          style={{ width: "480px", height: "128px" }}
+          style={{ width: "290px", height: "128px" }}
         />
       </a>
       <div className="font-bold text-xl mb-2">{label}</div>

@@ -8,6 +8,7 @@ import KnowledeKingdomPilihanMenuPage from './pages/KnowledgeKingdomPilihanMenuP
 import KnowledgeKingdomPage from './pages/KnowledgeKingdomPage';
 import ImaginationKingdomPage from './pages/ImaginationKingdom';
 import InformationPage from './pages/Information';
+import SearchKnowledge from './pages/SearchKnowlede';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path='/challenges' element={<ChallengesPage/>}/>
       <Route path='/knowledge' element={<KnowledeKingdomPilihanMenuPage/>}/>
       <Route path='/knowledge/:tipe' element={<KnowledgeKingdomPage/>}/>
+      <Route path='/knowledge/:tipe/:mapel' element={<SearchKnowledge/>}/>
       <Route path='/imagination' element={<ImaginationKingdomPage/>}/>
       <Route path='/information' element={<InformationPage/>}/>
       <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
