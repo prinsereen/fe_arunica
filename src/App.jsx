@@ -9,6 +9,10 @@ import KnowledgeKingdomPage from './pages/KnowledgeKingdomPage';
 import ImaginationKingdomPage from './pages/ImaginationKingdom';
 import InformationPage from './pages/Information';
 import SearchKnowledge from './pages/SearchKnowlede';
+import SearchMyArt from './pages/SearchMyArt';
+import MyArtUnggah from './pages/MyArtUnggah';
+import MyLiteratureUnggah from './pages/MyLiteratureUnggah';
+import SearchMyLiterature from './pages/SearchMyLiterature';
 
 function App() {
   return (
@@ -22,6 +26,10 @@ function App() {
       <Route path='/knowledge/:tipe' element={<KnowledgeKingdomPage/>}/>
       <Route path='/knowledge/:tipe/:mapel' element={<SearchKnowledge/>}/>
       <Route path='/imagination' element={<ImaginationKingdomPage/>}/>
+      <Route path='/imagination/MyArt' element={<SearchMyArt/>}/>
+      <Route path='/imagination/MyArt/unggah' element={<MyArtUnggah/>}/>
+      <Route path='/imagination/MyLiterature' element={<SearchMyLiterature/>}/>
+      <Route path='/imagination/MyLiterature/history' element={<MyLiteratureUnggah/>}/>
       <Route path='/information' element={<InformationPage/>}/>
       <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
     </Routes>
