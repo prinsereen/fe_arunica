@@ -13,6 +13,11 @@ import SearchMyArt from './pages/SearchMyArt';
 import MyArtUnggah from './pages/MyArtUnggah';
 import MyLiteratureUnggah from './pages/MyLiteratureUnggah';
 import SearchMyLiterature from './pages/SearchMyLiterature';
+import UnggahSoal from './pages/UnggahSoal';
+import EditSoal from './pages/EditSoal';
+import DaftarSoal from './pages/DaftarSoal';
+import DaftarSiswa from './pages/DaftarSiswa';
+import RingkasanHasil from './pages/RingkasanHasil';
 
 function App() {
   return (
@@ -32,6 +37,13 @@ function App() {
       <Route path='/imagination/MyLiterature/history' element={<MyLiteratureUnggah/>}/>
       <Route path='/information' element={<InformationPage/>}/>
       <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
+
+
+      <Route path='/guru/unggahsoal' element={<UnggahSoal/>}/>
+      <Route path='/guru/editsoal' element={<EditSoal/>}/>
+      <Route path='/guru/daftarsoal' element={<DaftarSoal/>}/>
+      <Route path='/guru/daftarsiswa' element={<DaftarSiswa/>}/>
+      <Route path='/guru/ringkasanhasil' element={<RingkasanHasil/>}/>
     </Routes>
     </>
   )
