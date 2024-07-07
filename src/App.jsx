@@ -18,6 +18,7 @@ import EditSoal from './pages/EditSoal';
 import DaftarSoal from './pages/DaftarSoal';
 import DaftarSiswa from './pages/DaftarSiswa';
 import RingkasanHasil from './pages/RingkasanHasil';
+import Abstrak from './pages/Abstrak';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
       <Route path='/imagination/MyArt' element={<SearchMyArt/>}/>
       <Route path='/imagination/MyArt/unggah' element={<MyArtUnggah/>}/>
       <Route path='/imagination/MyLiterature' element={<SearchMyLiterature/>}/>
+      <Route path='/imagination/MyLiterature/abstrak/:id' element={<Abstrak/>}/>
       <Route path='/imagination/MyLiterature/history' element={<MyLiteratureUnggah/>}/>
       <Route path='/information' element={<InformationPage/>}/>
       <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>

@@ -2,7 +2,7 @@ import Molekul from "../assets/Comic/comic_1.png";
 import Pancasila from "../assets/Comic/comic_2.png";
 import Kejujuran from "../assets/Comic/Comic_3_Kejujuran.jpg";
 import Kemerdekaan from "../assets/Comic/comic_4_kemerdekaan.jpg";
-import ArtHistory from "./ArtHistory";
+import ArtHistory from "./ArtHistoryCard";
 
 const ArtList = () => {
     const datas = [

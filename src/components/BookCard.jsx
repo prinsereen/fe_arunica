@@ -5,28 +5,51 @@ import Lampu from "../assets/Books/Lampu.png"
 import Selena from "../assets/Books/Selena.png"
 import ImageBookCard from "./ImageBookCard";
 
-function BookCard () {
+function BookCard() {
+    const dataBook = [
+        {
+            imageSrc: Bumi,
+            title: "Bumi - Tere Liye",
+            id: 'aaaa'
+        },
+        {
+            imageSrc: Bintang,
+            title: "Bintang - Tere Liye",
+            id: 'bbbb'
+        },
+        {
+            imageSrc: Komet,
+            title: "Komet - Tere Liye",
+            id: 'cccc'
+        },
+        {
+            imageSrc: Lampu,
+            title: "Lampu - Tere Liye",
+            id: 'dddd'
+        },
+        {
+            imageSrc: Selena,
+            title: "Selena - Tere Liye",
+            id: 'eeee'
+        }
+    ];
 
-    const dataBook = {
-        imageSrc: [Bumi, Bintang, Komet, Lampu, Selena],
-        title: ["Bumi - Tere Liye", "Bintang - Tere Liye", "Komet - Tere Liye", "Lampu - Tere Liye", "Selena - Tere Liye"],
-    }
-
-    return(
+    return (
         <>
             <div className="mx-44 grid grid-cols-5 gap-2 justify-between">
-                {dataBook.imageSrc.map((image, index) => (
+                {dataBook.map((book, index) => (
                     <ImageBookCard
                         key={index}
                         datas={{
-                            imageSrc: image,
-                            title: dataBook.title[index],
+                            imageSrc: book.imageSrc,
+                            title: book.title,
+                            id: book.id
                         }}
                     />
                 ))}
             </div>
         </>
-    )
+    );
 }
 
 export default BookCard;

@@ -11,16 +11,16 @@ function SearchBook() {
     const [query, setQuery] = useState("");
 
     const dataBook = [
-        { imageSrc: Bumi, title: "Bumi - Tere Liye" },
-        { imageSrc: Bintang, title: "Bintang - Tere Liye" },
-        { imageSrc: Komet, title: "Komet - Tere Liye" },
-        { imageSrc: Lampu, title: "Lampu - Tere Liye" },
-        { imageSrc: Selena, title: "Selena - Tere Liye" },
-        { imageSrc: Bumi, title: "Bumi - Tere Liye" },
-        { imageSrc: Bintang, title: "Bintang - Tere Liye" },
-        { imageSrc: Komet, title: "Komet - Tere Liye" },
-        { imageSrc: Lampu, title: "Lampu - Tere Liye" },
-        { imageSrc: Selena, title: "Selena - Tere Liye" },
+        { imageSrc: Bumi, title: "Bumi - Tere Liye", id:'aaaaaaaa'},
+        { imageSrc: Bintang, title: "Bintang - Tere Liye" , id:'aaaaaaaa'},
+        { imageSrc: Komet, title: "Komet - Tere Liye" , id:'aaaaaaaa'},
+        { imageSrc: Lampu, title: "Lampu - Tere Liye" , id:'aaaaaaaa'},
+        { imageSrc: Selena, title: "Selena - Tere Liye" , id:'aaaaaaaa'},
+        { imageSrc: Bumi, title: "Bumi - Tere Liye" , id:'aaaaaaaa'},
+        { imageSrc: Bintang, title: "Bintang - Tere Liye" , id:'aaaaaaaa'},
+        { imageSrc: Komet, title: "Komet - Tere Liye" , id:'aaaaaaaa'},
+        { imageSrc: Lampu, title: "Lampu - Tere Liye" , id:'aaaaaaaa'},
+        { imageSrc: Selena, title: "Selena - Tere Liye" , id:'aaaaaaaa'},
     ];
 
     const handleSearch = (searchQuery) => {
@@ -42,6 +42,7 @@ function SearchBook() {
                             datas={{
                                 imageSrc: book.imageSrc,
                                 title: book.title,
+                                id: book.id
                             }}
                         />
                     ))
