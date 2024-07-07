@@ -1,15 +1,13 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import SearchForm from "../components/SearchForm";
+import SearchComic from "../components/SearchComic";
 
 const SearchMyArt = () => {
-    const datas = {
-        placeholder: "Test"
-    }
+
     return (
         <>
         <Navbar/>
-        <SearchForm datas={datas}/>
+        <SearchComic/>
         <Footer/>
         </>
     );

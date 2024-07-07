@@ -1,15 +1,13 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import SearchForm from "../components/SearchForm";
+import SearchBook from "../components/SearchBook";
 
 const SearchMyLiterature = () => {
-    const datas = {
-        placeholder: "Test"
-    }
+
     return (
         <>
         <Navbar/>
-        <SearchForm datas={datas}/>
+        <SearchBook/>
         <Footer/>
         </>
     );

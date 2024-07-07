@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 function ImageComicCard({ datas }) {
   return (
     <div>
-      <div className="relative">
+      <div className="relative mt-4">
         <img className="rounded-lg  h-[320px] w-[220px]" src={datas.imageSrc} alt="img" />
       </div>
       <div className="flex justify-center items-center">

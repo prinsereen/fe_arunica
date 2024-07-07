@@ -7,7 +7,7 @@ import ImageBookCard from "./ImageBookCard";
 
 function BookCard () {
 
-    const dataComic = {
+    const dataBook = {
         imageSrc: [Bumi, Bintang, Komet, Lampu, Selena],
         title: ["Bumi - Tere Liye", "Bintang - Tere Liye", "Komet - Tere Liye", "Lampu - Tere Liye", "Selena - Tere Liye"],
     }
@@ -15,12 +15,12 @@ function BookCard () {
     return(
         <>
             <div className="mx-44 grid grid-cols-5 gap-2 justify-between">
-                {dataComic.imageSrc.map((image, index) => (
+                {dataBook.imageSrc.map((image, index) => (
                     <ImageBookCard
                         key={index}
                         datas={{
                             imageSrc: image,
-                            title: dataComic.title[index],
+                            title: dataBook.title[index],
                         }}
                     />
                 ))}

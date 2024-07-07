@@ -20,6 +20,9 @@ const SearchForm = ({ datas, onSearch }) => {
     if (!tipe){
         tipe = location.pathname.split('/')[2]
     }
+    const pathnameArray = location.pathname.split('/');
+    const lastElement = pathnameArray[pathnameArray.length - 1];
+    console.log(lastElement)
     
     
     let pathTo;
@@ -77,20 +80,20 @@ const SearchForm = ({ datas, onSearch }) => {
                 <h2 className="text-2xl font-bold">{mapelView}</h2>
             </div>
             {(tipe === 'MyArt' || tipe === 'MyLiterature') &&             
-            <div className="grid mx-60 mt-4 grid-cols-2">
+            <div className="grid mx-60 my-8 grid-cols-2">
                 <div className=" flex justify-center items-center">
                     <div className={`flex ${isPathMatching(`/imagination/${tipe}`) ? 'pb-1 rounded-2xl bg-[#F94C10]' : ''}`}>
-                        <Link className={`py-2 w-44  text-black font-bold rounded-2xl border text-center ${isPathMatching(`/imagination/${tipe}`) ? 'bg-[#EFD595]' : 'bg-[#9F9F9F]'}`} to={`/imagination/${tipe}`}>{leftButtonText}</Link>
+                        <Link className={`py-2 w-64  text-black font-bold rounded-2xl border text-center ${isPathMatching(`/imagination/${tipe}`) ? 'bg-[#EFD595]' : 'bg-[#9F9F9F]'}`} to={`/imagination/${tipe}`}>{leftButtonText}</Link>
                     </div>
                 </div>
                 <div className="flex justify-center items-center ">
                     <div className={`flex ${isPathMatching(`/imagination/${tipe}/${pathTo}`) ? 'pb-1 rounded-2xl bg-[#F94C10]' : ''}`}>
-                        <Link className={`py-2 w-44  text-black font-bold rounded-2xl border text-center ${isPathMatching(`/imagination/${tipe}/${pathTo}`) ? 'bg-[#EFD595]' : 'bg-[#9F9F9F]'}`} to={`/imagination/${tipe}/${pathTo}`}>{RightButtonText}</Link>
+                        <Link className={`py-2 w-64  text-black font-bold rounded-2xl border text-center ${isPathMatching(`/imagination/${tipe}/${pathTo}`) ? 'bg-[#EFD595]' : 'bg-[#9F9F9F]'}`} to={`/imagination/${tipe}/${pathTo}`}>{RightButtonText}</Link>
                     </div>                
                 </div>
-
             </div>}
             <div className="mt-6 mx-60">
+                { (((tipe !== 'MyArt' && tipe !== 'MyLiterature') || (lastElement == 'MyArt'|| lastElement == 'MyLiterature')) ) &&                 
                 <input
                     type="text"
                     value={query}
@@ -98,6 +101,7 @@ const SearchForm = ({ datas, onSearch }) => {
                     placeholder={datas.placeholder}
                     className="w-full p-2 border border-gray-600 rounded-md text-gray-800"
                 />
+                }
             </div>
         </>
     );
