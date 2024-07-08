@@ -19,6 +19,9 @@ import DaftarSoal from './pages/DaftarSoal';
 import DaftarSiswa from './pages/DaftarSiswa';
 import RingkasanHasil from './pages/RingkasanHasil';
 import Abstrak from './pages/Abstrak';
+import ViewPdf from './pages/ViewPdf';
+import Ringkasan from './pages/Ringkasan';
+import DetailHistoryBacaan from './pages/DetailHistoryBacaan';
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
       <Route path='/imagination/MyLiterature' element={<SearchMyLiterature/>}/>
       <Route path='/imagination/MyLiterature/abstrak/:id' element={<Abstrak/>}/>
       <Route path='/imagination/MyLiterature/history' element={<MyLiteratureUnggah/>}/>
+      <Route path='/imagination/MyLiterature/history/:id' element={<DetailHistoryBacaan/>}/>
+      <Route path='/imagination/MyLiterature/book/:id' element={<ViewPdf/>}/>
+      <Route path='/imagination/MyLiterature/book/ringkasan/:id' element={<Ringkasan/>}/>
       <Route path='/information' element={<InformationPage/>}/>
       <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
 

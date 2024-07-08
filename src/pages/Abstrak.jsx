@@ -34,7 +34,7 @@ const Abstrak = () => {
             </div>
                 <div className="mx-44  grid grid-cols-5">
                     <div className="col-start-4 flex justify-center items-center">
-                        <Link to={`/imagination/MyLiterature/book/${data.id}`} className="text-white text-center font- w-36 p-1 rounded-lg bg-[#1450A3] hover:bg-blue-900 border">Baca</Link>
+                        <Link to={`/imagination/MyLiterature/book/${data.id}`} className="text-white text-center  w-36 p-1 rounded-lg bg-[#1450A3] hover:bg-blue-900 border">Baca</Link>
                     </div>
                 </div>
             <Footer/>
