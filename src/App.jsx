@@ -24,6 +24,8 @@ import Ringkasan from './pages/Ringkasan';
 import DetailHistoryBacaan from './pages/DetailHistoryBacaan';
 import Leaderboard from './pages/Leaderboard';
 import Lomba from './pages/Lomba';
+import MyReadBook from './pages/MyReadBook';
+import DisplayYoutube from './pages/DisplayYoutube';
 
 function App() {
   return (
@@ -32,11 +34,17 @@ function App() {
       <Route path="/" element={<StudentHome/>}/>
       <Route path='/register/siswa' element={<StudentRegister/>}/>
       <Route path='/login/siswa' element={<StudentLogin/>}/>
+
       <Route path='/challenges' element={<ChallengesPage/>}/>
+      <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
+
       <Route path='/knowledge' element={<KnowledeKingdomPilihanMenuPage/>}/>
       <Route path='/knowledge/:tipe' element={<KnowledgeKingdomPage/>}/>
       <Route path='/knowledge/:tipe/:mapel' element={<SearchKnowledge/>}/>
-      <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
+      <Route path='/knowledge/:tipe/:mapel/book/:id' element={<MyReadBook/>}/>
+      <Route path='/knowledge/video/:id' element={<DisplayYoutube/>}/>
+
+      
 
       <Route path='/imagination' element={<ImaginationKingdomPage/>}/>
       <Route path='/imagination/MyArt' element={<SearchMyArt/>}/>
