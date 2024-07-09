@@ -10,7 +10,7 @@ const EditSoal = () => {
   return (
     <TeacherLayout breadcrumb="IPA / MyQuiz / Tambah Soal Baru / Edit Soal">
       <SectionTile title="Edit Soal Pilihan Ganda" />
-      <section className="my-5 space-y-5 lg:mx-44">
+      <section className="my-5 space-y-5 lg:mx-20">
         <MultipleAnswer />
         <div className="my-5 space-x-5 lg:mx-20 flex items-center justify-center">
           <SmallButton
@@ -28,7 +28,7 @@ const EditSoal = () => {
         </div>
       </section>
       <SectionTile title="Edit Soal Isian Singkat" />
-      <section className="my-5 space-y-5 lg:mx-44">
+      <section className="my-5 space-y-5 lg:mx-20">
         <ShortAnswer />
         <div className="my-5 space-x-5 lg:mx-20 flex items-center justify-center">
           <SmallButton
@@ -46,7 +46,7 @@ const EditSoal = () => {
         </div>
       </section>
       <SectionTile title="Edit Soal Esai" />
-      <section className="my-5 space-y-5 lg:mx-44">
+      <section className="my-5 space-y-5 lg:mx-20">
         <EsaiAnswer />
         <div className="my-5 space-x-5 lg:mx-20 flex items-center justify-center">
           <SmallButton

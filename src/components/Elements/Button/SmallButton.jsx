@@ -5,7 +5,7 @@ export const SmallButton = (props) => {
 
   return (
     <button
-      className={`px-6 ${
+      className={`px-[12px] ${
         type === "primary"
           ? "bg-[#1450A3]"
           : type === "secondary"

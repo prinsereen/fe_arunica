@@ -58,7 +58,7 @@ const UnggahSoal = () => {
   return (
     <TeacherLayout breadcrumb="IPA / MyQuiz / Tambah Soal Baru">
       <SectionTile title="Deskripsi Umum Soal" />
-      <section className="my-5 space-y-5 lg:mx-44">
+      <section className="my-5 space-y-5 lg:mx-20">
         <InputLabel id="input_judul" label="Masukan judul">
           <TextField
             id="input_judul"
@@ -140,7 +140,7 @@ const UnggahSoal = () => {
         </InputLabel>
       </section>
       <SectionTile title="Jenis-Jenis Soal" />
-      <section className="my-5 space-y-5 lg:mx-44">
+      <section className="my-5 space-y-5 lg:mx-20">
         <InputLabel id="input_jml_soal" label="Jumlah pilihan ganda">
           <NumberField
             id="input_jml_soal"
@@ -214,7 +214,7 @@ const UnggahSoal = () => {
           />
         </InputLabel>
       </section>
-      <section className="my-5 space-y-5 lg:mx-44 text-center">
+      <section className="my-5 space-y-5 lg:mx-20 text-center">
         <SmallButton
           type="primary"
           label="Edit Soal"
