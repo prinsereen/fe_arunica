@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 export const TextAreaField = (props) => {
   const {
+    color,
     id,
     placeholder,
     value,
@@ -15,7 +16,9 @@ export const TextAreaField = (props) => {
 
   return (
     <textarea
-      className="w-full bg-[#E8E8E8] px-[20px] py-[4px] rounded-[8px]"
+      className={`w-full ${
+        color === "white" ? "bg-white" : "bg-[#E8E8E8]"
+      } px-[20px] py-[4px] rounded-[8px]`}
       id={id}
       value={value}
       rows={rows}
@@ -30,6 +33,7 @@ export const TextAreaField = (props) => {
 };
 
 TextAreaField.propTypes = {
+  color: PropTypes.string,
   id: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
