@@ -23,6 +23,7 @@ import ViewPdf from './pages/ViewPdf';
 import Ringkasan from './pages/Ringkasan';
 import DetailHistoryBacaan from './pages/DetailHistoryBacaan';
 import Leaderboard from './pages/Leaderboard';
+import Lomba from './pages/Lomba';
 
 function App() {
   return (
@@ -47,8 +48,10 @@ function App() {
       <Route path='/imagination/MyLiterature/book/:id' element={<ViewPdf/>}/>
       <Route path='/imagination/MyLiterature/book/ringkasan/:id' element={<Ringkasan/>}/>
 
+
       <Route path='/information' element={<InformationPage/>}/>
       <Route path='/information/Leaderboard' element={<Leaderboard/>}/>      
+      <Route path='/information/Lomba' element={<Lomba/>}/>      
 
       <Route path='/guru/unggahsoal' element={<UnggahSoal/>}/>
       <Route path='/guru/editsoal' element={<EditSoal/>}/>
