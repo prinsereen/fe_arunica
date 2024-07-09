@@ -22,6 +22,7 @@ import Abstrak from './pages/Abstrak';
 import ViewPdf from './pages/ViewPdf';
 import Ringkasan from './pages/Ringkasan';
 import DetailHistoryBacaan from './pages/DetailHistoryBacaan';
+import Leaderboard from './pages/Leaderboard';
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
       <Route path='/knowledge' element={<KnowledeKingdomPilihanMenuPage/>}/>
       <Route path='/knowledge/:tipe' element={<KnowledgeKingdomPage/>}/>
       <Route path='/knowledge/:tipe/:mapel' element={<SearchKnowledge/>}/>
+      <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
+
       <Route path='/imagination' element={<ImaginationKingdomPage/>}/>
       <Route path='/imagination/MyArt' element={<SearchMyArt/>}/>
       <Route path='/imagination/MyArt/unggah' element={<MyArtUnggah/>}/>
@@ -43,9 +46,9 @@ function App() {
       <Route path='/imagination/MyLiterature/history/:id' element={<DetailHistoryBacaan/>}/>
       <Route path='/imagination/MyLiterature/book/:id' element={<ViewPdf/>}/>
       <Route path='/imagination/MyLiterature/book/ringkasan/:id' element={<Ringkasan/>}/>
-      <Route path='/information' element={<InformationPage/>}/>
-      <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
 
+      <Route path='/information' element={<InformationPage/>}/>
+      <Route path='/information/Leaderboard' element={<Leaderboard/>}/>      
 
       <Route path='/guru/unggahsoal' element={<UnggahSoal/>}/>
       <Route path='/guru/editsoal' element={<EditSoal/>}/>
