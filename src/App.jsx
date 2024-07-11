@@ -44,8 +44,6 @@ function App() {
       <Route path='/knowledge/:tipe/:mapel/book/:id' element={<MyReadBook/>}/>
       <Route path='/knowledge/video/:id' element={<DisplayYoutube/>}/>
 
-      
-
       <Route path='/imagination' element={<ImaginationKingdomPage/>}/>
       <Route path='/imagination/MyArt' element={<SearchMyArt/>}/>
       <Route path='/imagination/MyArt/unggah' element={<MyArtUnggah/>}/>
