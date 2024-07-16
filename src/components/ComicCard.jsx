@@ -7,6 +7,7 @@ import ImageComicCard from "./ImageComicCard";
 function ComicCard () {
 
     const dataComic = {
+        id: ['aaa', 'bbb', 'ccc', 'ddd'],
         imageSrc: [Molekul, Pancasila, Kejujuran, Kemerdekaan],
         title: ["Molekul dan Atom", "Nilai Pancasila", "Kejujuran", "Kemerdekaan"],
         author: ["Dono Sudjatmiko", "Wedyodiningrat", "Mangkunegoro", "Alexander"],
@@ -21,7 +22,8 @@ function ComicCard () {
                         datas={{
                             imageSrc: image,
                             title: dataComic.title[index],
-                            author: dataComic.author[index]
+                            author: dataComic.author[index],
+                            id: dataComic.id[index]
                         }}
                     />
                 ))}

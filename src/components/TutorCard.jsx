@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const TutorCard = ({ url, label }) => {
   const [thumbnail, setThumbnail] = useState("");
@@ -12,9 +13,8 @@ const TutorCard = ({ url, label }) => {
   }, [url]);
 
   return (
-    <div className="flex flex-col items-center  ">
+    <Link to={`/knowledge/video/${videoId}`} className="flex flex-col items-center  ">
       <a
-        href={`/knowledge/video/${videoId}`}
         target="_blank"
         rel="noopener noreferrer"
         className="block text-blue-500 hover:text-blue-700"
@@ -27,7 +27,7 @@ const TutorCard = ({ url, label }) => {
         />
       </a>
       <div className="font-bold text-xl mb-2">{label}</div>
-    </div>
+    </Link>
   );
 };
 

@@ -26,6 +26,8 @@ import Leaderboard from './pages/Leaderboard';
 import Lomba from './pages/Lomba';
 import MyReadBook from './pages/MyReadBook';
 import DisplayYoutube from './pages/DisplayYoutube';
+import Comic from './pages/Comic';
+import GuruHome from './pages/GuruHome';
 
 function App() {
   return (
@@ -53,12 +55,13 @@ function App() {
       <Route path='/imagination/MyLiterature/history/:id' element={<DetailHistoryBacaan/>}/>
       <Route path='/imagination/MyLiterature/book/:id' element={<ViewPdf/>}/>
       <Route path='/imagination/MyLiterature/book/ringkasan/:id' element={<Ringkasan/>}/>
-
+      <Route path='/imagination/comic/:id' element={<Comic/>}/>
 
       <Route path='/information' element={<InformationPage/>}/>
       <Route path='/information/Leaderboard' element={<Leaderboard/>}/>      
-      <Route path='/information/Lomba' element={<Lomba/>}/>      
+      <Route path='/information/Lomba' element={<Lomba/>}/>
 
+      <Route path='/guru/:menu/:kelas' element={<GuruHome/>}/>
       <Route path='/guru/unggahsoal' element={<UnggahSoal/>}/>
       <Route path='/guru/editsoal' element={<EditSoal/>}/>
       <Route path='/guru/daftarsoal' element={<DaftarSoal/>}/>
