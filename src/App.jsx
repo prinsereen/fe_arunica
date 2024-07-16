@@ -28,6 +28,9 @@ import MyReadBook from './pages/MyReadBook';
 import DisplayYoutube from './pages/DisplayYoutube';
 import Comic from './pages/Comic';
 import GuruHome from './pages/GuruHome';
+import DetailSoal from './pages/DetailSoal';
+import GuruLogin from './pages/GuruLogin';
+import GuruRegister from './pages/GuruRegister';
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
       <Route path='/register/siswa' element={<StudentRegister/>}/>
       <Route path='/login/siswa' element={<StudentLogin/>}/>
 
+      <Route path='/register/guru' element={<GuruRegister/>}/>
+      <Route path='/login/guru' element={<GuruLogin/>}/>
+
       <Route path='/challenges' element={<ChallengesPage/>}/>
       <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
 
@@ -44,6 +50,7 @@ function App() {
       <Route path='/knowledge/:tipe' element={<KnowledgeKingdomPage/>}/>
       <Route path='/knowledge/:tipe/:mapel' element={<SearchKnowledge/>}/>
       <Route path='/knowledge/:tipe/:mapel/book/:id' element={<MyReadBook/>}/>
+      <Route path='/knowledge/:tipe/:mapel/soal/:id' element={<DetailSoal/>}/>
       <Route path='/knowledge/video/:id' element={<DisplayYoutube/>}/>
 
       <Route path='/imagination' element={<ImaginationKingdomPage/>}/>

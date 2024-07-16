@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import { RadioGreenTick } from "../../Elements/Radio/RadioGreenTick";
 import { SmallButton } from "../../Elements/Button/SmallButton";
 import { TextAreaField } from "../../Elements/Field/TextAreaField";
 import { TextField } from "../../Elements/Field/TextField";
 import { useState } from "react";
 
-export const MultipleAnswer = () => {
+export const MultipleAnswer = ({role}) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleOptionChange = (event) => {
@@ -60,6 +61,7 @@ export const MultipleAnswer = () => {
             </div>
           </div>
         </div>
+        {role === 'guru' && 
         <div className="pr-6 max-w-[250px] space-y-4 my-4">
           <SmallButton
             type="secondary"
@@ -79,8 +81,12 @@ export const MultipleAnswer = () => {
             onClick={() => {}}
             isExpanded={true}
           />
-        </div>
+        </div>}
       </div>
     </div>
   );
+};
+
+MultipleAnswer.propTypes = {
+  role: PropTypes.string.isRequired,
 };

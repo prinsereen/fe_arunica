@@ -1,8 +1,9 @@
 import { SmallButton } from "../../Elements/Button/SmallButton";
 import { TextAreaField } from "../../Elements/Field/TextAreaField";
 import { TextField } from "../../Elements/Field/TextField";
+import PropTypes from 'prop-types';
 
-export const ShortAnswer = () => {
+export const ShortAnswer = ({role}) => {
   return (
     <div className="bg-[#E8E8E8] rounded-[24px]">
       <div className="flex items-center justify-center">
@@ -47,7 +48,7 @@ export const ShortAnswer = () => {
             </div>
           </div>
         </div>
-        <div className="pr-6 max-w-[250px] space-y-4">
+        {role === 'guru' && <div className="pr-6 max-w-[250px] space-y-4">
           <SmallButton
             type="secondary"
             label="Generate Jawaban dengan AI"
@@ -66,8 +67,13 @@ export const ShortAnswer = () => {
             onClick={() => {}}
             isExpanded={true}
           />
-        </div>
+        </div>}
+
       </div>
     </div>
   );
+};
+
+ShortAnswer.propTypes = {
+  role: PropTypes.string.isRequired,
 };
