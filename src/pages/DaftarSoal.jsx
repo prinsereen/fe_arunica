@@ -2,8 +2,10 @@ import { QuestionTile } from "../components/Elements/Tile/QuestionTile";
 import { SectionTile } from "../components/Elements/Tile/SectionTile";
 import { SmallButton } from "../components/Elements/Button/SmallButton";
 import { TeacherLayout } from "../components/Layouts/TeacherLayout";
+import { useNavigate } from "react-router-dom";
 
 const DaftarSoal = () => {
+  const navigate = useNavigate()
   return (
     <TeacherLayout breadcrumb="IPA / MyQuiz / Tambah Soal Baru / Edit Soal">
       <SectionTile title="Ilmu Taksonomi" color="yellow" />
@@ -12,7 +14,7 @@ const DaftarSoal = () => {
           <SmallButton
             type="secondary"
             label="Edit Soal"
-            onClick={() => {}}
+            onClick={() => {navigate('/guru/editsoal')}}
             isExpanded={true}
           />
           <SmallButton
@@ -24,7 +26,7 @@ const DaftarSoal = () => {
           <SmallButton
             type="warning"
             label="Daftar Siswa"
-            onClick={() => {}}
+            onClick={() => {navigate('/guru/daftarsiswa')}}
             isExpanded={true}
           />
         </QuestionTile>

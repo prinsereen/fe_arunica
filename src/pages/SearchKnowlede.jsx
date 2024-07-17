@@ -14,8 +14,14 @@ const SearchKnowledgeKingdom = () => {
     const { tipe } = useParams()
     let datas;
     let filteredSectionCard;
+    let typeCard;
 
     if (tipe == 'MyBank' || tipe == 'MyRead') {
+        if (tipe == 'MyBank'){
+            typeCard = 'bank'
+        }else if (tipe == 'MyRead'){
+            typeCard = 'read'
+        }
         datas = {
             placeholder: "Explorasi Quiz yang ingin kamu taklukkan",
             sectionCard: [
@@ -125,7 +131,7 @@ const SearchKnowledgeKingdom = () => {
             {(tipe == 'MyBank' || tipe == 'MyRead') &&
             <div>
                 {filteredSectionCard.map((card, index) => (
-                    <HorizontalPaginationCard key={index} datas={card} />
+                    <HorizontalPaginationCard key={index} datas={card} type={typeCard}/>
                 ))}
             </div>}
             {(tipe == 'MyTutor' || tipe == 'MyQuick') &&

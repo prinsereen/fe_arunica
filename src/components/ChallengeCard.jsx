@@ -19,6 +19,7 @@ function ChallengeCard() {
                     <ImageCard
                         key={index}
                         datas={{
+                            type: 'quiz',
                             imageSrc: image,
                             title: datas.title[index],
                             description: datas.description[index],

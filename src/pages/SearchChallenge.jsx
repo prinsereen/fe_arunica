@@ -68,7 +68,7 @@ const SearchChallenge = () => {
             <SearchForm datas={datas} onSearch={handleSearch} />
             <div>
                 {filteredSectionCard.map((card, index) => (
-                    <HorizontalPaginationCard key={index} datas={card} />
+                    <HorizontalPaginationCard key={index} datas={card} type="quiz" />
                 ))}
             </div>
             <Footer />

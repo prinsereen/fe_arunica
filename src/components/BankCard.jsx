@@ -19,6 +19,7 @@ function BankCard () {
                     <ImageCard
                         key={index}
                         datas={{
+                            type: 'bank',
                             imageSrc: image,
                             title: dataBank.title[index],
                             deadline: dataBank.deadline[index],

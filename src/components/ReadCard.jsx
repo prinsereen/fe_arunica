@@ -18,6 +18,7 @@ function ReadCard () {
                     <ImageCard
                         key={index}
                         datas={{
+                            type: 'read',
                             imageSrc: image,
                             title: dataRead.title[index],
                             deadline: dataRead.deadline[index]

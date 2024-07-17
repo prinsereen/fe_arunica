@@ -31,6 +31,7 @@ import GuruHome from './pages/GuruHome';
 import DetailSoal from './pages/DetailSoal';
 import GuruLogin from './pages/GuruLogin';
 import GuruRegister from './pages/GuruRegister';
+import SubMenuSoal from './pages/SubMenuSoal';
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
       <Route path='/information/Lomba' element={<Lomba/>}/>
 
       <Route path='/guru/:menu/:kelas' element={<GuruHome/>}/>
+      <Route path='/guru/:menu/:kelas/:mapel' element={<SubMenuSoal/>}/>
       <Route path='/guru/unggahsoal' element={<UnggahSoal/>}/>
       <Route path='/guru/editsoal' element={<EditSoal/>}/>
       <Route path='/guru/daftarsoal' element={<DaftarSoal/>}/>

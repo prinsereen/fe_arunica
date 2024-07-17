@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import ImageCard from "./ImageCard";
 
-const HorizontalPaginationCard = ({ datas }) => {
+const HorizontalPaginationCard = ({ datas,  type}) => {
     const { sectionTitle, imageSrc, title, description, exp, deadline } = datas.card;
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -32,6 +32,7 @@ const HorizontalPaginationCard = ({ datas }) => {
                         <ImageCard
                             key={currentIndex + index}
                             datas={{
+                                type,
                                 imageSrc: image,
                                 title: title[currentIndex + index],
                                 description: description[currentIndex + index],
@@ -70,6 +71,7 @@ const HorizontalPaginationCard = ({ datas }) => {
 }
 
 HorizontalPaginationCard.propTypes = {
+    type: PropTypes.string.isRequired,
     datas: PropTypes.shape({
         card: PropTypes.shape({
             sectionTitle: PropTypes.string.isRequired,
