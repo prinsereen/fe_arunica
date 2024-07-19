@@ -26,7 +26,7 @@ const TutorCard = ({ url, label }) => {
           style={{ width: "290px", height: "128px" }}
         />
       </a>
-      <div className="font-bold text-xl mb-2">{label}</div>
+      <div className="font-bold text-center text-xl mb-2">{label}</div>
     </Link>
   );
 };

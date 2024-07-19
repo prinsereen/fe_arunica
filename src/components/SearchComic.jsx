@@ -1,24 +1,25 @@
-import { useState } from "react";
-import Molekul from "../assets/Comic/comic_1.png";
-import Pancasila from "../assets/Comic/comic_2.png";
-import Kejujuran from "../assets/Comic/Comic_3_Kejujuran.jpg";
-import Kemerdekaan from "../assets/Comic/comic_4_kemerdekaan.jpg";
+import { useState, useEffect } from "react";
 import ImageComicCard from "./ImageComicCard";
 import SearchForm from "./SearchForm"; 
+import api from "../utils/api";
 
 function SearchComic() {
     const [query, setQuery] = useState("");
+    const [dataComic, setdataComic] = useState([]);
 
-    const dataComic = [
-        { imageSrc: Molekul, title: "Molekul dan Atom", author: "Dono Sudjatmiko" },
-        { imageSrc: Pancasila, title: "Nilai Pancasila", author: "Wedyodiningrat" },
-        { imageSrc: Kejujuran, title: "Kejujuran", author: "Mangkunegoro" },
-        { imageSrc: Kemerdekaan, title: "Kemerdekaan", author: "Alexander" },
-        { imageSrc: Molekul, title: "Molekul dan Atom", author: "Dono Sudjatmiko" },
-        { imageSrc: Pancasila, title: "Nilai Pancasila", author: "Wedyodiningrat" },
-        { imageSrc: Kejujuran, title: "Kejujuran", author: "Mangkunegoro" },
-        { imageSrc: Kemerdekaan, title: "Kemerdekaan", author: "Alexander" },
-    ];
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await api.getVerifiedComic();
+                setdataComic(response);
+            } catch (error) {
+                console.error('Error fetching data: ', error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const handleSearch = (searchQuery) => {
         setQuery(searchQuery);
@@ -38,6 +39,7 @@ function SearchComic() {
                         <ImageComicCard
                             key={index}
                             datas={{
+                                id: comic.id,
                                 imageSrc: comic.imageSrc,
                                 title: comic.title,
                                 author: comic.author,

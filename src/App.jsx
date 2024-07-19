@@ -1,4 +1,4 @@
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import StudentHome from './pages/StudentHome';
 import StudentRegister from './pages/StudentRegister';
 import StudentLogin from './pages/StudentLogin';
@@ -32,53 +32,261 @@ import DetailSoal from './pages/DetailSoal';
 import GuruLogin from './pages/GuruLogin';
 import GuruRegister from './pages/GuruRegister';
 import SubMenuSoal from './pages/SubMenuSoal';
+import PropTypes from 'prop-types';
+
+const ProtectedRoute = ({ children }) => {
+  const accessToken = localStorage.getItem('accessToken');
+  //console.log("acsess token: ", accessToken)
+  return accessToken ? children : <Navigate to="/login/siswa" />;
+};
 
 function App() {
   return (
-    <>
     <Routes>
-      <Route path="/" element={<StudentHome/>}/>
-      <Route path='/register/siswa' element={<StudentRegister/>}/>
-      <Route path='/login/siswa' element={<StudentLogin/>}/>
+      <Route path="/register/siswa" element={<StudentRegister />} />
+      <Route path="/login/siswa" element={<StudentLogin />} />
+      <Route path="/register/guru" element={<GuruRegister />} />
+      <Route path="/login/guru" element={<GuruLogin />} />
 
-      <Route path='/register/guru' element={<GuruRegister/>}/>
-      <Route path='/login/guru' element={<GuruLogin/>}/>
-
-      <Route path='/challenges' element={<ChallengesPage/>}/>
-      <Route path='/challenges/:mapel' element={<SearchChallenge/>}/>
-
-      <Route path='/knowledge' element={<KnowledeKingdomPilihanMenuPage/>}/>
-      <Route path='/knowledge/:tipe' element={<KnowledgeKingdomPage/>}/>
-      <Route path='/knowledge/:tipe/:mapel' element={<SearchKnowledge/>}/>
-      <Route path='/knowledge/:tipe/:mapel/book/:id' element={<MyReadBook/>}/>
-      <Route path='/knowledge/:tipe/:mapel/soal/:id' element={<DetailSoal/>}/>
-      <Route path='/knowledge/video/:id' element={<DisplayYoutube/>}/>
-
-      <Route path='/imagination' element={<ImaginationKingdomPage/>}/>
-      <Route path='/imagination/MyArt' element={<SearchMyArt/>}/>
-      <Route path='/imagination/MyArt/unggah' element={<MyArtUnggah/>}/>
-      <Route path='/imagination/MyLiterature' element={<SearchMyLiterature/>}/>
-      <Route path='/imagination/MyLiterature/abstrak/:id' element={<Abstrak/>}/>
-      <Route path='/imagination/MyLiterature/history' element={<MyLiteratureUnggah/>}/>
-      <Route path='/imagination/MyLiterature/history/:id' element={<DetailHistoryBacaan/>}/>
-      <Route path='/imagination/MyLiterature/book/:id' element={<ViewPdf/>}/>
-      <Route path='/imagination/MyLiterature/book/ringkasan/:id' element={<Ringkasan/>}/>
-      <Route path='/imagination/comic/:id' element={<Comic/>}/>
-
-      <Route path='/information' element={<InformationPage/>}/>
-      <Route path='/information/Leaderboard' element={<Leaderboard/>}/>      
-      <Route path='/information/Lomba' element={<Lomba/>}/>
-
-      <Route path='/guru/:menu/:kelas' element={<GuruHome/>}/>
-      <Route path='/guru/:menu/:kelas/:mapel' element={<SubMenuSoal/>}/>
-      <Route path='/guru/unggahsoal' element={<UnggahSoal/>}/>
-      <Route path='/guru/editsoal' element={<EditSoal/>}/>
-      <Route path='/guru/daftarsoal' element={<DaftarSoal/>}/>
-      <Route path='/guru/daftarsiswa' element={<DaftarSiswa/>}/>
-      <Route path='/guru/ringkasanhasil' element={<RingkasanHasil/>}/>
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <StudentHome />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/challenges"
+        element={
+          <ProtectedRoute>
+            <ChallengesPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/challenges/:mapel"
+        element={
+          <ProtectedRoute>
+            <SearchChallenge />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/knowledge"
+        element={
+          <ProtectedRoute>
+            <KnowledeKingdomPilihanMenuPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/knowledge/:tipe"
+        element={
+          <ProtectedRoute>
+            <KnowledgeKingdomPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/knowledge/:tipe/:mapel"
+        element={
+          <ProtectedRoute>
+            <SearchKnowledge />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/knowledge/:tipe/:mapel/book/:id"
+        element={
+          <ProtectedRoute>
+            <MyReadBook />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/knowledge/:tipe/:mapel/soal/:id"
+        element={
+          <ProtectedRoute>
+            <DetailSoal />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/knowledge/video/:id"
+        element={
+          <ProtectedRoute>
+            <DisplayYoutube />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination"
+        element={
+          <ProtectedRoute>
+            <ImaginationKingdomPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/MyArt"
+        element={
+          <ProtectedRoute>
+            <SearchMyArt />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/MyArt/unggah"
+        element={
+          <ProtectedRoute>
+            <MyArtUnggah />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/MyLiterature"
+        element={
+          <ProtectedRoute>
+            <SearchMyLiterature />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/MyLiterature/abstrak/:id"
+        element={
+          <ProtectedRoute>
+            <Abstrak />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/MyLiterature/history"
+        element={
+          <ProtectedRoute>
+            <MyLiteratureUnggah />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/MyLiterature/history/:id"
+        element={
+          <ProtectedRoute>
+            <DetailHistoryBacaan />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/MyLiterature/book/:id"
+        element={
+          <ProtectedRoute>
+            <ViewPdf />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/MyLiterature/book/ringkasan/:id"
+        element={
+          <ProtectedRoute>
+            <Ringkasan />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/comic/:id"
+        element={
+          <ProtectedRoute>
+            <Comic />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/information"
+        element={
+          <ProtectedRoute>
+            <InformationPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/information/Leaderboard"
+        element={
+          <ProtectedRoute>
+            <Leaderboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/information/Lomba"
+        element={
+          <ProtectedRoute>
+            <Lomba />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/guru/:menu/:kelas"
+        element={
+          <ProtectedRoute>
+            <GuruHome />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/guru/:menu/:kelas/:mapel"
+        element={
+          <ProtectedRoute>
+            <SubMenuSoal />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/guru/unggahsoal"
+        element={
+          <ProtectedRoute>
+            <UnggahSoal />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/guru/editsoal"
+        element={
+          <ProtectedRoute>
+            <EditSoal />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/guru/daftarsoal"
+        element={
+          <ProtectedRoute>
+            <DaftarSoal />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/guru/daftarsiswa"
+        element={
+          <ProtectedRoute>
+            <DaftarSiswa />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/guru/ringkasanhasil"
+        element={
+          <ProtectedRoute>
+            <RingkasanHasil />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
-    </>
-  )
+  );
 }
 
-export default App
+ProtectedRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+
+export default App;

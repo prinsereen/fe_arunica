@@ -1,14 +1,25 @@
+import { useEffect, useState } from "react";
 import QuickCard from "./QuickCard.jsx";
+import api from "../utils/api.js"; 
 
 const Quick = () => {
-  const dataQuick = {
-    url: [
-      "https://www.youtube.com/watch?v=Wqrr2ba3dU0",
-      "https://www.youtube.com/watch?v=nAz0SeVHZzA",
-      "https://www.youtube.com/watch?v=87aqpfPJdlI"
-    ],
-    label: ["Himpunan", "Fungsi", "Limit"]
-  };
+  const [dataQuick, setDataQuick] = useState({ url: [], label: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const type = 'quick'
+        const response = await api.getThreeKnowledge({type});
+        const urls = response.map(item => item.url);
+        const labels = response.map(item => item.judul);
+        setDataQuick({ url: urls, label: labels });
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="mx-44 pt-4">

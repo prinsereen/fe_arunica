@@ -6,6 +6,7 @@ import BangunDatar from "../assets/Challenges/BangunDatar.png";
 import BangunRuang from "../assets/Challenges/BangunRuang.png";
 import LuasDanVolume from "../assets/Challenges/LuasDanVolume.png";
 import HorizontalPaginationCard from "../components/HorizontalPaginationCard";
+import PersonalAssistance from "../components/personalAssistance";
 
 const SearchChallenge = () => {
     const [query, setQuery] = useState("");
@@ -71,6 +72,7 @@ const SearchChallenge = () => {
                     <HorizontalPaginationCard key={index} datas={card} type="quiz" />
                 ))}
             </div>
+            <PersonalAssistance/>
             <Footer />
         </>
     );

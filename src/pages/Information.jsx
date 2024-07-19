@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Information from "../assets/HeroSection/Information.png"
 import HeloHeroSection from "../components/HeloHeroSection";
 import InformationPilihan from "../components/InformationPilihan";
+import PersonalAssistance from "../components/personalAssistance";
 
 const InformationPage = () => {
     const heroData = {
@@ -19,6 +20,7 @@ const InformationPage = () => {
             <HeroSection data={heroData}/>
             <HeloHeroSection data={heroData}/>
             <InformationPilihan data={heroData}/>
+            <PersonalAssistance/>
             <Footer/>
         </div>
     );

@@ -13,7 +13,7 @@ const QuicCard = ({ url, label }) => {
   }, [url]);
 
   return (
-    <Link to={`/knowledge/video/${videoId}`} className="flex flex-col items-center  ">
+    <Link to={`/knowledge/video/${videoId}`} className="flex flex-col items-center">
       <a
         href={url}
         target="_blank"
@@ -27,7 +27,7 @@ const QuicCard = ({ url, label }) => {
           style={{ width: "480px", height: "128px" }}
         />
       </a>
-      <div className="font-bold text-xl mb-2">{label}</div>
+      <div className="text-center font-bold text-xl mb-2">{label}</div>
     </Link>
   );
 };

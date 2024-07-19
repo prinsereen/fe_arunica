@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SearchForm from "../components/SearchForm";
@@ -8,13 +8,37 @@ import LuasDanVolume from "../assets/Challenges/LuasDanVolume.png";
 import HorizontalPaginationCard from "../components/HorizontalPaginationCard";
 import { useParams } from "react-router-dom";
 import HorizontalVideoPaginationCard from "../components/HorizontalVideoPaginationCard";
+import api from "../utils/api";
+import { formatDataFromApi } from "../utils/formatApi";
+import PersonalAssistance from "../components/personalAssistance";
 
 const SearchKnowledgeKingdom = () => {
     const [query, setQuery] = useState("");
-    const { tipe } = useParams()
+    const [dataVideo, setDataVideo] = useState([])
+    const { tipe, mapel } = useParams()
     let datas;
     let filteredSectionCard;
     let typeCard;
+    let type
+
+    if (tipe == 'MyBank' || tipe == 'MyRead'){
+        type = tipe === 'MyBank' ? 'bank' : 'read';
+    }else if (tipe == 'MyTutor' || tipe == 'MyQuick'){
+        type = tipe === 'MyTutor' ? 'tutor' : 'quick';
+    }
+
+    useEffect(() => {
+        const fetchVideoData = async () => {
+            try {
+                const response = await api.getAllKnowledge({type, mapel})
+                const formattedData = formatDataFromApi(response)
+                setDataVideo(formattedData)
+            } catch (error) {
+                console.error('Error fetching progress data:', error);
+            }
+        }
+        fetchVideoData()
+    })
 
     if (tipe == 'MyBank' || tipe == 'MyRead') {
         if (tipe == 'MyBank'){
@@ -69,34 +93,12 @@ const SearchKnowledgeKingdom = () => {
             }
         }));
     }else if (tipe == 'MyTutor' || tipe == 'MyQuick'){
+
         datas = {
             placeholder: "Explorasi Quiz yang ingin kamu taklukkan",
-            sectionCard: [
-                {
-                    card: {
-                        sectionTitle: 'Geometri',
-                        url: [
-                            "https://www.youtube.com/watch?v=vF8uWdrVorg",
-                            "https://www.youtube.com/watch?v=124ivGoFuQg",
-                            "https://www.youtube.com/watch?v=EAEQ7TaNdWk",
-                            "https://www.youtube.com/watch?v=EAEQ7TaNdWk"
-                        ],
-                        label: ["Fotosintesis", "Sejarah VOC", "Koperasi", "Koperasi"]
-                    }
-                },
-                {
-                    card: {
-                        sectionTitle: 'Aritmatika',
-                        url: [
-                            "https://www.youtube.com/watch?v=vF8uWdrVorg",
-                            "https://www.youtube.com/watch?v=124ivGoFuQg",
-                            "https://www.youtube.com/watch?v=EAEQ7TaNdWk",
-                        ],
-                        label: ["Fotosintesis", "Sejarah VOC", "Koperasi"]
-                    }
-                }
-            ]
         };
+        datas.sectionCard = dataVideo
+        // console.log(datas)
         
         filteredSectionCard = datas.sectionCard.map(section => {
             const filteredUrlsAndLabels = section.card.url.reduce((acc, url, index) => {
@@ -140,7 +142,7 @@ const SearchKnowledgeKingdom = () => {
                     <HorizontalVideoPaginationCard key={index} datas={card} />
                 ))}
             </div>}
-
+            <PersonalAssistance/>
             <Footer />
         </>
     );

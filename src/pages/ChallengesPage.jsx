@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Target from "../assets/HeroSection/Target.png"
 import HeloHeroSection from "../components/HeloHeroSection";
 import ChooseMapel from "../components/ChooseMapel";
+import PersonalAssistance from "../components/personalAssistance";
 
 const ChallengesPage = () => {
     const heroData = {
@@ -19,6 +20,7 @@ const ChallengesPage = () => {
             <HeroSection data={heroData}/>
             <HeloHeroSection data={heroData}/>
             <ChooseMapel data={heroData}/>
+            <PersonalAssistance/>
             <Footer/>
         </div>
     );

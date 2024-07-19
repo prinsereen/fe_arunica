@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import api from '../utils/api';
 
 const ArtInputForm = () => {
     const [fileUploaded, setFileUploaded] = useState(false);
@@ -6,6 +7,7 @@ const ArtInputForm = () => {
         judul: '',
         file: null,
     });
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -20,10 +22,21 @@ const ArtInputForm = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
+        try {
+            const result = await api.tambahComic(formData);
+            console.log('Comic berhasil ditambahkan:', result);
+            setSuccessMessage('Comic berhasil ditambahkan!');
+            setFormData({
+                judul: '',
+                file: null,
+            });
+            setFileUploaded(false);
+        } catch (error) {
+            console.error('Gagal menambahkan comic:', error.message);
+            setSuccessMessage('Gagal menambahkan comic. Silakan coba lagi.');
+        }
     };
 
     return (
@@ -93,9 +106,17 @@ const ArtInputForm = () => {
                         </label>
                     </div>
                 )}
+
+                {successMessage && (
+                    <div className="mt-4 text-center">
+                        <p className={`font-bold ${successMessage.includes('berhasil') ? 'text-green-600' : 'text-red-600'}`}>
+                            {successMessage}
+                        </p>
+                    </div>
+                )}
             </form>
         </div>
     );
-}
+};
 
 export default ArtInputForm;

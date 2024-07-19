@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import LiteratureList from "../components/LiteratureList";
 import Navbar from "../components/Navbar";
+import PersonalAssistance from "../components/personalAssistance";
 import SearchForm from "../components/SearchForm";
 
 
@@ -13,6 +14,7 @@ const MyLiteratureUnggah = () => {
         <Navbar/>
         <SearchForm datas={datas}/>
         <LiteratureList/>
+        <PersonalAssistance/>
         <Footer/>
         </>
     );

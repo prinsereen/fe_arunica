@@ -2,14 +2,47 @@ import maskot from "../assets/StudentAuth/maskot.png";
 import logo from "../assets/StudentAuth/logo.png";
 import instagram from "../assets/StudentAuth/instagram.png";
 import { Link } from "react-router-dom";
+import api from "../utils/api";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const StudentLogin = () => {
+        const [formData, setFormData] = useState({
+        nisn: '',
+        password: '',
+    });
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await api.login(formData);
+            console.log(response)
+            if (response.accessToken) {
+                api.putAccessToken(response.accessToken)
+                navigate('/');
+            } else {
+                const errorData = await response.json();
+                console.error('Error:', errorData);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     return (
         <>
             <div className='min-h-screen grid grid-cols-2'>
                 <div className="bg-white flex-grow">
                     <h2 className="text-center mt-28 text-3xl font-bold">Sign In</h2>
-                    <form className="space-y-3" action="">
+                    <form className="space-y-3" onSubmit={handleSubmit} action="">
                     <div className="mx-24 mt-4">
                         <label className="block text-sm text-[#515151] font-bold">NISN</label>
                         <input
@@ -17,8 +50,8 @@ const StudentLogin = () => {
                             className="mt-1 block w-full px-3 py-1 border bg-[#E8E8E8] border-black rounded-full shadow-sm focus:outline-none focus:ring-black focus:border-black"
                             name="nisn"
                             placeholder="Masukan NISN Anda"
-/*                             value={formData.username}
-                            onChange={handleChange} */
+                            value={formData.nisn}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="mx-24 ">
@@ -28,8 +61,8 @@ const StudentLogin = () => {
                             className="mt-1 block w-full px-3 py-1 border bg-[#E8E8E8] border-black rounded-full shadow-sm focus:outline-none focus:ring-black focus:border-black"
                             name="password"
                             placeholder="Masukan password Anda"
-/*                             value={formData.username}
-                            onChange={handleChange} */
+                            value={formData.password}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className="flex mx-24 items-center justify-between">

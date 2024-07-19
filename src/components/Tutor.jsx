@@ -1,14 +1,25 @@
+import { useEffect, useState } from "react";
 import TutorCard from "./TutorCard.jsx";
+import api from "../utils/api.js"; // Make sure this points to the correct path of your API utility
 
 const Tutor = () => {
-  const dataTutor = {
-    url: [
-      "https://www.youtube.com/watch?v=vF8uWdrVorg",
-      "https://www.youtube.com/watch?v=124ivGoFuQg",
-      "https://www.youtube.com/watch?v=EAEQ7TaNdWk"
-    ],
-    label: ["Fotosintesis", "Sejarah VOC", "Koperasi"]
-  };
+  const [dataTutor, setDataTutor] = useState({ url: [], label: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const type = 'tutor'
+        const response = await api.getThreeKnowledge({type});
+        const urls = response.map(item => item.url);
+        const labels = response.map(item => item.judul);
+        setDataTutor({ url: urls, label: labels });
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="mx-44 pt-4">

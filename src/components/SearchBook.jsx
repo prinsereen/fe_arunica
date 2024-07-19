@@ -1,27 +1,29 @@
-import { useState } from "react";
-import Bintang from "../assets/Books/Bintang.png";
-import Bumi from "../assets/Books/Bumi.png";
-import Komet from "../assets/Books/Komet.png";
-import Lampu from "../assets/Books/Lampu.png";
-import Selena from "../assets/Books/Selena.png";
+import { useState, useEffect } from "react";
 import ImageBookCard from "./ImageBookCard";
-import SearchForm from "./SearchForm"; // Import komponen SearchForm
+import SearchForm from "./SearchForm"; 
+import api from "../utils/api";
 
 function SearchBook() {
     const [query, setQuery] = useState("");
+    const [dataBook, setDataBook] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const dataBook = [
-        { imageSrc: Bumi, title: "Bumi - Tere Liye", id:'aaaaaaaa'},
-        { imageSrc: Bintang, title: "Bintang - Tere Liye" , id:'aaaaaaaa'},
-        { imageSrc: Komet, title: "Komet - Tere Liye" , id:'aaaaaaaa'},
-        { imageSrc: Lampu, title: "Lampu - Tere Liye" , id:'aaaaaaaa'},
-        { imageSrc: Selena, title: "Selena - Tere Liye" , id:'aaaaaaaa'},
-        { imageSrc: Bumi, title: "Bumi - Tere Liye" , id:'aaaaaaaa'},
-        { imageSrc: Bintang, title: "Bintang - Tere Liye" , id:'aaaaaaaa'},
-        { imageSrc: Komet, title: "Komet - Tere Liye" , id:'aaaaaaaa'},
-        { imageSrc: Lampu, title: "Lampu - Tere Liye" , id:'aaaaaaaa'},
-        { imageSrc: Selena, title: "Selena - Tere Liye" , id:'aaaaaaaa'},
-    ];
+    useEffect(() => {
+        api.getAllBuku().then(response => {
+            const mappedData = response.map(book => ({
+                imageSrc: book.url_sampul,
+                title: book.judul,
+                id: book.id
+            }));
+            setDataBook(mappedData);
+            setIsLoading(false);
+        }).catch(error => {
+            console.error('Error fetching books:', error);
+            setError(error);
+            setIsLoading(false);
+        });
+    }, []);
 
     const handleSearch = (searchQuery) => {
         setQuery(searchQuery);
@@ -30,6 +32,14 @@ function SearchBook() {
     const filteredBooks = dataBook.filter((book) => 
         book.title.toLowerCase().includes(query.toLowerCase())
     );
+
+    if (isLoading) {
+        return <p></p>;
+    }
+
+    if (error) {
+        return <p>Error loading books: {error.message}</p>;
+    }
 
     return (
         <>

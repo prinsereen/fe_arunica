@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import SearchComic from "../components/SearchComic";
+import PersonalAssistance from "../components/personalAssistance";
 
 const SearchMyArt = () => {
 
@@ -9,6 +10,7 @@ const SearchMyArt = () => {
         <Navbar/>
         <SearchComic/>
         <Footer/>
+        <PersonalAssistance/>
         </>
     );
 }

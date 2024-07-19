@@ -4,6 +4,7 @@ import Challenge from "../components/Challenge"
 import KnowledgeKingdom from "../components/KnowledeKingdom"
 import ImaginationKingdom from "../components/ImaginationKingdom"
 import Footer from "../components/Footer"
+import PersonalAssistance from "../components/personalAssistance"
 
 function StudentHome() {
     return (
@@ -13,6 +14,7 @@ function StudentHome() {
             <Challenge/>
             <KnowledgeKingdom/>
             <ImaginationKingdom/>
+            <PersonalAssistance/>
             <Footer/>
         </>
     )

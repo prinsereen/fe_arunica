@@ -1,35 +1,40 @@
-import Molekul from "../assets/Comic/comic_1.png"
-import Pancasila from "../assets/Comic/comic_2.png"
-import Kejujuran from "../assets/Comic/Comic_3_Kejujuran.jpg"
-import Kemerdekaan from "../assets/Comic/comic_4_kemerdekaan.jpg"
+import { useState, useEffect } from "react";
 import ImageComicCard from "./ImageComicCard";
+import api from "../utils/api";
 
 function ComicCard () {
+    const [dataComic, setDataComic] = useState([]);
 
-    const dataComic = {
-        id: ['aaa', 'bbb', 'ccc', 'ddd'],
-        imageSrc: [Molekul, Pancasila, Kejujuran, Kemerdekaan],
-        title: ["Molekul dan Atom", "Nilai Pancasila", "Kejujuran", "Kemerdekaan"],
-        author: ["Dono Sudjatmiko", "Wedyodiningrat", "Mangkunegoro", "Alexander"],
-    }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await api.getComicHome();
+                setDataComic(response);
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
 
-    return(
+        fetchData();
+    }, []);
+
+    return (
         <>
             <div className="mx-44 grid grid-cols-4 gap-2 justify-between">
-                {dataComic.imageSrc.map((image, index) => (
+                {dataComic.map((comic) => (
                     <ImageComicCard
-                        key={index}
+                        key={comic.id}
                         datas={{
-                            imageSrc: image,
-                            title: dataComic.title[index],
-                            author: dataComic.author[index],
-                            id: dataComic.id[index]
+                            imageSrc: comic.imageSrc,
+                            title: comic.title,
+                            author: comic.author,
+                            id: comic.id
                         }}
                     />
                 ))}
             </div>
         </>
-    )
+    );
 }
 
 export default ComicCard;

@@ -1,38 +1,22 @@
-import Bintang from "../assets/Books/Bintang.png"
-import Bumi from "../assets/Books/Bumi.png"
-import Komet from "../assets/Books/Komet.png"
-import Lampu from "../assets/Books/Lampu.png"
-import Selena from "../assets/Books/Selena.png"
-import ImageBookCard from "./ImageBookCard";
+import { useEffect, useState } from 'react';
+import ImageBookCard from './ImageBookCard';
+import api from '../utils/api';
 
 function BookCard() {
-    const dataBook = [
-        {
-            imageSrc: Bumi,
-            title: "Bumi - Tere Liye",
-            id: 'aaaa'
-        },
-        {
-            imageSrc: Bintang,
-            title: "Bintang - Tere Liye",
-            id: 'bbbb'
-        },
-        {
-            imageSrc: Komet,
-            title: "Komet - Tere Liye",
-            id: 'cccc'
-        },
-        {
-            imageSrc: Lampu,
-            title: "Lampu - Tere Liye",
-            id: 'dddd'
-        },
-        {
-            imageSrc: Selena,
-            title: "Selena - Tere Liye",
-            id: 'eeee'
-        }
-    ];
+    const [dataBook, setDataBook] = useState([]);
+
+    useEffect(() => {
+        api.getBukuHome().then(response => {
+            const mappedData = response.map(book => ({
+                imageSrc: book.url_sampul,
+                title: book.judul,
+                id: book.id
+            }));
+            setDataBook(mappedData);
+        }).catch(error => {
+            console.error('Error fetching books:', error);
+        });
+    }, []);
 
     return (
         <>
