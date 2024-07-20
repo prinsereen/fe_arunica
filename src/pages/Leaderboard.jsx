@@ -8,6 +8,8 @@ import LeaderboardList from "../components/LeaderboardList";
 import Knight from "../assets/Leaderboard/Knight_2.png";
 import Guardian from "../assets/Leaderboard/Knight_4.png";
 import api from '../utils/api';
+import profile from "../assets/ProgresSummary/Anton.png";
+
 
 const Leaderboard = () => {
     const [data, setData] = useState([]);
@@ -16,7 +18,11 @@ const Leaderboard = () => {
         const fetchData = async () => {
             try {
                 const leaderboardData = await api.getLeaderboard();
-                setData(leaderboardData);
+                const updatedData = leaderboardData.map(item => ({
+                    ...item,
+                    img: item.img || profile
+                }));
+                setData(updatedData);
             } catch (error) {
                 console.error("Error fetching leaderboard data:", error);
             }

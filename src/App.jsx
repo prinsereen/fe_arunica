@@ -33,6 +33,7 @@ import GuruLogin from './pages/GuruLogin';
 import GuruRegister from './pages/GuruRegister';
 import SubMenuSoal from './pages/SubMenuSoal';
 import PropTypes from 'prop-types';
+import Jawaban from './pages/Jawaban';
 
 const ProtectedRoute = ({ children }) => {
   const accessToken = localStorage.getItem('accessToken');
@@ -221,6 +222,14 @@ function App() {
         element={
           <ProtectedRoute>
             <Lomba />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/quiz"
+        element={
+          <ProtectedRoute>
+            <Jawaban/>
           </ProtectedRoute>
         }
       />

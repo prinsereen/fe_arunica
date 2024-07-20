@@ -77,7 +77,7 @@ const DetailHistoryBacaan = () => {
                 <div className="px-8 flex flex-col justify-center items-center">
                     <h1 className="mb-4 text-xl font-bold">Pemahaman siswa</h1>
                     <Doughnut data={dataPemahamanSiswa} />
-                    <label className="flex justify-center items-center font-bold">{data.pemahaman_siswa}%</label>
+                    <label className="flex justify-center items-center font-bold">{data.pemahanan_siswa}%</label>
                 </div>
                 <div className="px-8 flex flex-col justify-center items-center">
                     <h1 className="mb-4 text-xl font-bold">Kesesuaian Ringkasan</h1>
