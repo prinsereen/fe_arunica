@@ -146,6 +146,26 @@ const api = (() => {
       return response
     }
 
+    async function tambahNilaiMath(){
+      const response = await _fetchWithAuth(`${BASE_URL}/tambahnilaimath`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+      });      
+      return response
+    }
+
+    async function tambahNilaiIps(){
+      const response = await _fetchWithAuth(`${BASE_URL}/tambahnilaiips`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+      });      
+      return response
+    }
+
     async function tambahComic({ judul, file }) {
       const formData = new FormData();
       formData.append('judul', judul);
@@ -364,7 +384,9 @@ const api = (() => {
       HistoryRingkasanById,
       getMyBukuBacaan,
       getLeaderboard,
-      arun
+      arun,
+      tambahNilaiMath,
+      tambahNilaiIps
     };
   })();
   

@@ -5,8 +5,8 @@ import { TextAreaField } from "../../Elements/Field/TextAreaField";
 import { TextField } from "../../Elements/Field/TextField";
 import { useState } from "react";
 
-export const MultipleAnswer = ({role}) => {
-  const [selectedOption, setSelectedOption] = useState("");
+export const MultipleAnswer = ({ role, title, options, correctAnswer, discussion }) => {
+  const [selectedOption, setSelectedOption] = useState(correctAnswer);
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -20,7 +20,7 @@ export const MultipleAnswer = ({role}) => {
             <TextField
               id="input_judul"
               placeholder="Masukkan judul soal"
-              value={"1. soal"}
+              value={title}
               onChange={() => {}}
               isRequired={true}
               isDisabled={false}
@@ -28,12 +28,7 @@ export const MultipleAnswer = ({role}) => {
           </div>
           <div className="px-6">
             <div>
-              {[
-                { value: "Escherichia coli", label: "Escherichia coli" },
-                { value: "Streptococcus", label: "Streptococcus" },
-                { value: "Plasmodium", label: "Plasmodium" },
-                { value: "Cyanobacteria", label: "Cyanobacteria" },
-              ].map((option) => (
+              {options.map((option) => (
                 <RadioGreenTick
                   key={option.value}
                   id={option.value}
@@ -50,7 +45,7 @@ export const MultipleAnswer = ({role}) => {
                 color="white"
                 id="input_deskripsi"
                 placeholder="Tulis deskripsi soal"
-                value={"deskripsi"}
+                value={discussion}
                 rows={2}
                 min={10}
                 max={250}
@@ -61,27 +56,28 @@ export const MultipleAnswer = ({role}) => {
             </div>
           </div>
         </div>
-        {role === 'guru' && 
-        <div className="pr-6 max-w-[250px] space-y-4 my-4">
-          <SmallButton
-            type="secondary"
-            label="Generate Jawaban dengan AI"
-            onClick={() => {}}
-            isExpanded={true}
-          />
-          <SmallButton
-            type="warning"
-            label="Tambah Gambar"
-            onClick={() => {}}
-            isExpanded={true}
-          />
-          <SmallButton
-            type="danger"
-            label="Hapus Soal"
-            onClick={() => {}}
-            isExpanded={true}
-          />
-        </div>}
+        {role === 'guru' && (
+          <div className="pr-6 max-w-[250px] space-y-4 my-4">
+            <SmallButton
+              type="secondary"
+              label="Generate Jawaban dengan AI"
+              onClick={() => {}}
+              isExpanded={true}
+            />
+            <SmallButton
+              type="warning"
+              label="Tambah Gambar"
+              onClick={() => {}}
+              isExpanded={true}
+            />
+            <SmallButton
+              type="danger"
+              label="Hapus Soal"
+              onClick={() => {}}
+              isExpanded={true}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -89,4 +85,13 @@ export const MultipleAnswer = ({role}) => {
 
 MultipleAnswer.propTypes = {
   role: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  correctAnswer: PropTypes.string.isRequired,
+  discussion: PropTypes.string.isRequired,
 };

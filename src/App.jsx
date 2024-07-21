@@ -34,6 +34,7 @@ import GuruRegister from './pages/GuruRegister';
 import SubMenuSoal from './pages/SubMenuSoal';
 import PropTypes from 'prop-types';
 import Jawaban from './pages/Jawaban';
+import ViewBookMyRead from './pages/ViewBookMyRead';
 
 const ProtectedRoute = ({ children }) => {
   const accessToken = localStorage.getItem('accessToken');
@@ -94,6 +95,14 @@ function App() {
         element={
           <ProtectedRoute>
             <SearchKnowledge />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/imagination/MyRead/book/:id"
+        element={
+          <ProtectedRoute>
+            <ViewBookMyRead/>
           </ProtectedRoute>
         }
       />

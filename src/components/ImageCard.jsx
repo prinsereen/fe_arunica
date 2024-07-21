@@ -6,11 +6,11 @@ function ImageCard({ datas }) {
   let path;
 
   if (type === 'bank') {
-    path = '/knowledge/MyBank/matematika/soal/a'
+    path = '/knowledge/MyBank/matematika/soal/1'
   }else if (type === 'read'){
-    path = '/imagination/MyLiterature/book/a'
+    path = '/imagination/MyRead/book/1'
   }else if (type === 'quiz'){
-    path = '/knowledge/MyBank/matematika/soal/a'
+    path = '/knowledge/MyBank/matematika/soal/1'
   }
 
   return (
