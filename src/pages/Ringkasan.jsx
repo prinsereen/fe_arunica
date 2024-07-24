@@ -64,7 +64,7 @@ const Ringkasan = () => {
                         theme="snow"
                         value={editorContent}
                         onChange={setEditorContent}
-                        className="mt-1 h-[240px]"
+                        className="mt-1 h-64  bg-white"
                     />
                 </div>
                 <div className='flex justify-end mt-12'>

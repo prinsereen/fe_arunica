@@ -48,7 +48,7 @@ function Navbar() {
 
     return (
         <>   
-        <div className="flex items-center justify-between px-20 py-2 border-b-2 border-gray-300 shadow-b-md">
+        <div className=" bg-white flex items-center justify-between px-20 py-2 border-b-2 border-gray-300 shadow-b-md">
             <Link to="/" onClick={() => handleClick("/")}><img src={Logo} alt="Logo" className="h-10" /></Link>
             <ul className="flex space-x-6">
                 <Link 
