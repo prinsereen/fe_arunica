@@ -1,14 +1,17 @@
-import Footer from "../components/Footer";
 import JawabanComponents from "../components/JawabanComponents";
-import Navbar from "../components/Navbar";
+import Confirmation from "../components/Confirmation";
+import ResponseJawaban from "../components/ResponseJawaban";
+import ResultJawabanQuiz from "../components/ResultJawabanQuiz";
 
 
 const Jawaban = () => {
+
     return (
         <div>
-            <Navbar/>
             <JawabanComponents/>
-            <Footer/>
+            <ResultJawabanQuiz/>
+            <ResponseJawaban type={true}/>
+            <Confirmation/>
         </div>
     );
 }

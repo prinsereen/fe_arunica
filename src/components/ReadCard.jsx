@@ -6,8 +6,8 @@ import ImageCard from "./ImageCard";
 function ReadCard () {
 
     const dataRead = {
-        imageSrc: [Matematika, IpaFotosintesis, Ips],
-        title: ["Matematika", "IPA", "IPS"],
+        imageSrc: [Ips, IpaFotosintesis, Matematika],
+        title: ["IPS", "IPA", "Matematika"],
         deadline: ["15 Oktober 2023", "15 Oktober 2023", "15 Oktober 2023"],
     }
 
