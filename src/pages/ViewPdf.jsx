@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import api from '../utils/api';
 import { Link } from "react-router-dom";
+import PersonalAssistance from "../components/personalAssistance";
 
 const MyReadBook = () => {
     const { id } = useParams();
@@ -50,6 +51,7 @@ const MyReadBook = () => {
                 />
                 <Link to={`/imagination/MyLiterature/book/ringkasan/${id}`} className="text-white mt-4 text-center  w-36 p-1 rounded-lg bg-[#1450A3] hover:bg-blue-900 border">Buat Ringkasan</Link>
             </div>
+            <PersonalAssistance/>
             <Footer />
         </div>
     );
